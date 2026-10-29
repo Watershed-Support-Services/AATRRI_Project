@@ -383,11 +383,12 @@ window.addEventListener('DOMContentLoaded',()=>{
   map.setView([21.5,80],6);
   L.control.zoom({position:'bottomleft'}).addTo(map);
 
-  bms.satellite=L.tileLayer('http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}', { maxZoom: 24 });
-  bms.light=L.tileLayer('http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{maxZoom:24});
-  bms.osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19});
-  bms.topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:24});
-  bms.satellite.addTo(map);
+bms.satellite = L.tileLayer('https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}', { maxZoom: 24 });
+bms.light = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', { maxZoom: 24 });
+bms.osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 });
+bms.topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { maxZoom: 24 });
+
+bms.satellite.addTo(map);
 
   cl=L.markerClusterGroup({
     showCoverageOnHover:false,zoomToBoundsOnClick:true,spiderfyOnMaxZoom:true,maxClusterRadius:50,
